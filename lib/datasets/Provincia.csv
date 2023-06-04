@@ -1,0 +1,116 @@
+Provincia;CodSiglaProvincia;DescrProvincia;CodCittaMetropolitana;CodRegione;DescrRegione;CodMacroregione;DescrMacroregione;CodNazione;DescrNazione;DataInizioValidita;DataFineValidita
+-1;-1;Non Determinato;-1;-1;Non Determinato;-1;Non Determinato;-1;Non determinato;18/03/1861;31/12/9999
+1;TO;Torino;201;1;Piemonte;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+2;VC;Vercelli;0;1;Piemonte;1;Nord - Ovest;IT;Italia;12/01/1927;31/12/9999
+3;NO;Novara;0;1;Piemonte;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+4;CN;Cuneo;0;1;Piemonte;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+5;AT;Asti;0;1;Piemonte;1;Nord - Ovest;IT;Italia;08/04/1935;31/12/9999
+6;AL;Alessandria;0;1;Piemonte;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+7;AO;Aosta - Aoste;0;2;Valle D'Aosta;1;Nord - Ovest;IT;Italia;05/10/1945;31/12/9999
+8;IM;Imperia;0;7;Liguria;1;Nord - Ovest;IT;Italia;29/11/1923;31/12/9999
+9;SV;Savona;0;7;Liguria;1;Nord - Ovest;IT;Italia;12/01/1927;31/12/9999
+10;GE;Genova;210;7;Liguria;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+11;SP;La Spezia;0;7;Liguria;1;Nord - Ovest;IT;Italia;02/10/1930;31/12/9999
+12;VA;Varese;0;3;Lombardia;1;Nord - Ovest;IT;Italia;12/01/1927;31/12/9999
+13;CO;Como;0;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+14;SO;Sondrio;0;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+15;MI;Milano;215;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+16;BG;Bergamo;0;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+17;BS;Brescia;0;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+18;PV;Pavia;0;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+19;CR;Cremona;0;3;Lombardia;1;Nord - Ovest;IT;Italia;18/03/1861;31/12/9999
+20;MN;Mantova;0;3;Lombardia;1;Nord - Ovest;IT;Italia;19/11/1866;31/12/9999
+21;BZ;Bolzano - Bozen;0;4;Trentino Alto Adige;2;Nord - Est;IT;Italia;12/01/1927;31/12/9999
+22;TN;Trento;0;4;Trentino Alto Adige;2;Nord - Est;IT;Italia;05/02/1923;31/12/9999
+23;VR;Verona;0;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+24;VI;Vicenza;0;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+25;BL;Belluno;0;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+26;TV;Treviso;0;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+27;VE;Venezia;227;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+28;PD;Padova;0;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+29;RO;Rovigo;0;5;Veneto;2;Nord - Est;IT;Italia;19/11/1866;31/12/9999
+30;UD;Udine;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;09/08/1940;31/12/9999
+31;GO;Gorizia;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;12/01/1927;31/12/9999
+32;TS;Trieste;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;08/02/1923;31/12/9999
+33;PC;Piacenza;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+34;PR;Parma;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+35;RE;Reggio Nell'Emilia;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+36;MO;Modena;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+37;BO;Bologna;237;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+38;FE;Ferrara;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+39;RA;Ravenna;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;18/03/1861;31/12/9999
+40;FC;Forli'-Cesena;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;16/04/1992;31/12/9999
+41;PU;Pesaro E Urbino;0;11;Marche;3;Centro;IT;Italia;18/03/1861;31/12/9999
+42;AN;Ancona;0;11;Marche;3;Centro;IT;Italia;18/03/1861;31/12/9999
+43;MC;Macerata;0;11;Marche;3;Centro;IT;Italia;18/03/1861;31/12/9999
+44;AP;Ascoli Piceno;0;11;Marche;3;Centro;IT;Italia;18/03/1861;31/12/9999
+45;MS;Massa-Carrara;0;9;Toscana;3;Centro;IT;Italia;01/03/1946;31/12/9999
+46;LU;Lucca;0;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+47;PT;Pistoia;0;9;Toscana;3;Centro;IT;Italia;12/01/1927;31/12/9999
+48;FI;Firenze;248;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+49;LI;Livorno;0;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+50;PI;Pisa;0;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+51;AR;Arezzo;0;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+52;SI;Siena;0;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+53;GR;Grosseto;0;9;Toscana;3;Centro;IT;Italia;18/03/1861;31/12/9999
+54;PG;Perugia;0;10;Umbria;3;Centro;IT;Italia;16/08/1882;31/12/9999
+55;TR;Terni;0;10;Umbria;3;Centro;IT;Italia;12/01/1927;31/12/9999
+56;VT;Viterbo;0;12;Lazio;3;Centro;IT;Italia;12/01/1927;31/12/9999
+57;RI;Rieti;0;12;Lazio;3;Centro;IT;Italia;12/01/1927;31/12/9999
+58;RM;Roma;258;12;Lazio;3;Centro;IT;Italia;15/01/1871;31/12/9999
+59;LT;Latina;0;12;Lazio;3;Centro;IT;Italia;09/04/1945;31/12/9999
+60;FR;Frosinone;0;12;Lazio;3;Centro;IT;Italia;12/01/1927;31/12/9999
+61;CE;Caserta;0;15;Campania;4;Sud;IT;Italia;11/06/1945;31/12/9999
+62;BN;Benevento;0;15;Campania;4;Sud;IT;Italia;18/03/1861;31/12/9999
+63;NA;Napoli;263;15;Campania;4;Sud;IT;Italia;18/03/1861;31/12/9999
+64;AV;Avellino;0;15;Campania;4;Sud;IT;Italia;16/08/1882;31/12/9999
+65;SA;Salerno;0;15;Campania;4;Sud;IT;Italia;16/08/1882;31/12/9999
+66;AQ;L'Aquila;0;13;Abruzzo;4;Sud;IT;Italia;23/11/1939;31/12/9999
+67;TE;Teramo;0;13;Abruzzo;4;Sud;IT;Italia;16/08/1882;31/12/9999
+68;PE;Pescara;0;13;Abruzzo;4;Sud;IT;Italia;12/01/1927;31/12/9999
+69;CH;Chieti;0;13;Abruzzo;4;Sud;IT;Italia;16/08/1882;31/12/9999
+70;CB;Campobasso;0;14;Molise;4;Sud;IT;Italia;19/01/1964;31/12/9999
+71;FG;Foggia;0;16;Puglia;4;Sud;IT;Italia;16/08/1882;31/12/9999
+72;BA;Bari;272;16;Puglia;4;Sud;IT;Italia;30/03/1930;31/12/9999
+73;TA;Taranto;0;16;Puglia;4;Sud;IT;Italia;28/04/1951;31/12/9999
+74;BR;Brindisi;0;16;Puglia;4;Sud;IT;Italia;12/01/1927;31/12/9999
+75;LE;Lecce;0;16;Puglia;4;Sud;IT;Italia;16/08/1882;31/12/9999
+76;PZ;Potenza;0;17;Basilicata;4;Sud;IT;Italia;16/08/1882;31/12/9999
+77;MT;Matera;0;17;Basilicata;4;Sud;IT;Italia;12/01/1927;31/12/9999
+78;CS;Cosenza;0;18;Calabria;4;Sud;IT;Italia;16/08/1882;31/12/9999
+79;CZ;Catanzaro;0;18;Calabria;4;Sud;IT;Italia;16/08/1882;31/12/9999
+80;RC;Reggio Di Calabria;280;18;Calabria;4;Sud;IT;Italia;16/08/1882;31/12/9999
+81;TP;Trapani;0;19;Sicilia;5;Isole;IT;Italia;18/03/1861;31/12/9999
+82;PA;Palermo;282;19;Sicilia;5;Isole;IT;Italia;18/03/1861;31/12/9999
+83;ME;Messina;283;19;Sicilia;5;Isole;IT;Italia;18/03/1861;31/12/9999
+84;AG;Agrigento;0;19;Sicilia;5;Isole;IT;Italia;01/07/1927;31/12/9999
+85;CL;Caltanissetta;0;19;Sicilia;5;Isole;IT;Italia;18/03/1861;31/12/9999
+86;EN;Enna;0;19;Sicilia;5;Isole;IT;Italia;12/01/1927;31/12/9999
+87;CT;Catania;287;19;Sicilia;5;Isole;IT;Italia;18/03/1861;31/12/9999
+88;RG;Ragusa;0;19;Sicilia;5;Isole;IT;Italia;12/01/1927;31/12/9999
+89;SR;Siracusa;0;19;Sicilia;5;Isole;IT;Italia;18/03/1861;31/12/9999
+90;SS;Sassari;0;20;Sardegna;5;Isole;IT;Italia;18/03/1861;31/12/9999
+91;NU;Nuoro;0;20;Sardegna;5;Isole;IT;Italia;12/01/1927;31/12/9999
+92;CA;Cagliari;292;20;Sardegna;5;Isole;IT;Italia;18/03/1861;31/12/9999
+93;PN;Pordenone;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;06/04/1968;31/12/9999
+94;IS;Isernia;0;14;Molise;4;Sud;IT;Italia;03/03/1970;31/12/9999
+95;OR;Oristano;0;20;Sardegna;5;Isole;IT;Italia;20/08/1974;31/12/9999
+96;BI;Biella;0;1;Piemonte;1;Nord - Ovest;IT;Italia;16/04/1992;31/12/9999
+97;LC;Lecco;0;3;Lombardia;1;Nord - Ovest;IT;Italia;16/04/1992;31/12/9999
+98;LO;Lodi;0;3;Lombardia;1;Nord - Ovest;IT;Italia;16/04/1992;31/12/9999
+99;RN;Rimini;0;8;Emilia Romagna;2;Nord - Est;IT;Italia;16/04/1992;31/12/9999
+100;PO;Prato;0;9;Toscana;3;Centro;IT;Italia;16/04/1992;31/12/9999
+101;KR;Crotone;0;18;Calabria;4;Sud;IT;Italia;16/04/1992;31/12/9999
+102;VV;Vibo Valentia;0;18;Calabria;4;Sud;IT;Italia;16/04/1992;31/12/9999
+103;VB;Verbano-Cusio-Ossola;0;1;Piemonte;1;Nord - Ovest;IT;Italia;23/05/1992;31/12/9999
+104;OT;Olbia Tempio;0;20;Sardegna;5;Isole;IT;Italia;01/01/2006;31/12/2016
+105;OG;Ogliastra;0;20;Sardegna;5;Isole;IT;Italia;01/01/2006;31/12/2016
+106;VS;Medio Campidano;0;20;Sardegna;5;Isole;IT;Italia;01/01/2006;31/12/2016
+107;CI;Carbonia Iglesias;0;20;Sardegna;5;Isole;IT;Italia;01/01/2006;31/12/2016
+108;MB;Monza E Della Brianza;0;3;Lombardia;1;Nord - Ovest;IT;Italia;30/06/2009;31/12/9999
+109;FM;Fermo;0;11;Marche;3;Centro;IT;Italia;12/07/2009;31/12/9999
+110;BT;Barletta-Andria-Trani;0;16;Puglia;4;Sud;IT;Italia;27/07/2009;31/12/9999
+111;SU;Sud Sardegna;0;20;Sardegna;5;Isole;IT;Italia;01/01/2017;31/12/9999
+701;FU;Fiume;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;27/01/1924;10/02/1947
+702;PL;Pola;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;27/01/1924;10/02/1947
+703;ZA;Zara;0;6;Friuli Venezia Giulia;2;Nord - Est;IT;Italia;27/01/1924;10/02/1947

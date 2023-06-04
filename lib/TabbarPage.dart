@@ -3,7 +3,11 @@ import 'package:floating_tabbar/Widgets/top_tabbar.dart';
 import 'package:floating_tabbar/floating_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:italian_happiness_index/CategorizedPage.dart';
 import 'ItalyMapPage.dart';
+
+import 'TableOfIndex.dart';
+
 
 class Tabbar extends StatefulWidget {
   const Tabbar({Key? key}) : super(key: key);
@@ -47,25 +51,19 @@ class _TabbarState extends State<Tabbar> {
           onTap: () {},
           selectedLeadingIcon: const Icon(Icons.table_view),
           title: const Text("Data"),
-          tab: const Center(child: Text("Data", style: TextStyle(fontSize: 30))),
+          tab: TableOfIndex(title: '',),
         ),
         TabItem(
           onTap: () {},
           selectedLeadingIcon: const Icon(Icons.library_books),
           title: const Text("Report"),
-          tab: const Center(child: Text("Report", style: TextStyle(fontSize: 30))),
-        ),
-        TabItem(
-          onTap: () {},
-          selectedLeadingIcon: const Icon(Icons.settings),
-          title: const Text("Settings"),
-          tab: const Center(child: Text("Settings", style: TextStyle(fontSize: 30))),
+          tab: CategorizedPage(),
         ),
       ];
       return _list;
     }
-
     return FloatingTabBar(
+      backgroundColor: Colors.white,
       children: tabList(),
       useNautics: true,
     );

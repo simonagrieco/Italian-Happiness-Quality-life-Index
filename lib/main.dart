@@ -12,11 +12,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Happiness Index - Italy',
       initialRoute: "/",
       home: Tabbar(),
       debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData(
+        primaryColor: Colors.blue,
+        brightness: Brightness.dark,
+        canvasColor: const Color.fromARGB(255, 37, 37, 37),
+      ),
     );
   }
 }

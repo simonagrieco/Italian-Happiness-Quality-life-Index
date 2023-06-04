@@ -25,13 +25,34 @@ class ItalyMapPage extends StatelessWidget {
     LatLng(45.7370, 7.3200), // Aosta
     LatLng(43.1107, 12.3896), // Perugia
     LatLng(46.0689, 11.1211), // Trento
-    LatLng(45.6495, 13.7768), // Trieste
-    LatLng(46.4983, 11.3540), // Bolzano
-    LatLng(41.5622, 14.6694), // Campobasso
+  ];
+
+  late final List<String> cityNames = [
+  "Torino",
+  "Milano",
+  "Venezia",
+  "Trieste",
+  "Genova",
+  "Bologna",
+  "Firenze",
+  "Ancona",
+  "Roma",
+  "L'Aquila",
+  "Napoli",
+  "Bari",
+  "Palermo",
+  "Cagliari",
+  "Catanzaro",
+  "Potenza",
+  "Campobasso",
+  "Aosta",
+  "Perugia",
+  "Trento",
   ];
 
   @override
   Widget build(BuildContext context) {
+
     List<Marker> markers = [];
 
     for (int i = 0; i < cityCoordinates.length; i++) {
@@ -46,15 +67,19 @@ class ItalyMapPage extends StatelessWidget {
               color: Colors.lightBlue,
             ),
             onPressed: () {
+              //richiesta
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text('Pop-up di esempio'),
-                    content: Text('Hai cliccato sul marker di una città.'),
+                    title: Text("Happiness Index of ${cityNames[i]}"),
+                    content: Text("Hai cliccato sul marker di ${cityNames[i]}"),
                     actions: [
                       TextButton(
-                        child: Text('Chiudi'),
+                        child: const Icon(
+                          Icons.close_rounded,
+                          color: Colors.black,
+                        ),
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
@@ -71,7 +96,7 @@ class ItalyMapPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Align(
+          title: const Align(
             child: Text('Map of Italy', style: TextStyle()),
             alignment: Alignment.center,
           )
