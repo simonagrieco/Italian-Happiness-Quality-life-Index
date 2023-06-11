@@ -4,7 +4,7 @@ import 'package:floating_tabbar/floating_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'ItalyMapPage.dart';
-import 'CategotyIndex.dart';
+import 'CategoryIndex.dart';
 import 'TableOfIndex.dart';
 
 
@@ -56,7 +56,7 @@ class _TabbarState extends State<Tabbar> {
           onTap: () {},
           selectedLeadingIcon: const Icon(Icons.library_books),
           title: const Text("Report"),
-          tab: CategotyIndex(),
+          tab: CategoryIndex(),
         ),
       ];
       return _list;

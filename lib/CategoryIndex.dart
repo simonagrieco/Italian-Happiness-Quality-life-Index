@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:italian_happiness_index/dbHelper/mongodb.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo;
 
-class CategotyIndex extends StatefulWidget {
+class CategoryIndex extends StatefulWidget {
   @override
-  _CategotyIndexState createState() => _CategotyIndexState();
+  _CategoryIndexState createState() => _CategoryIndexState();
 }
 
-class _CategotyIndexState extends State<CategotyIndex> {
+class _CategoryIndexState extends State<CategoryIndex> {
   List<String> indici = [];
   List<String> indici_positivi = [];
   Map<String, List<String>> macroCategorie = {
