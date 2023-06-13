@@ -40,6 +40,7 @@ dependencies:
   floating_tabbar: ^0.0.7
   flet: ^0.6.2
   mongo_dart: ^0.9.1
+  shared_preferences: ^2.0.6
 
 
 dev_dependencies:

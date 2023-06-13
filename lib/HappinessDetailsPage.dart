@@ -6,19 +6,8 @@ class HappinessDetailsPage extends StatelessWidget {
 
   HappinessDetailsPage({required this.regionData});
 
-  /*void calculatePunteggio() {
-    punteggio = 0;
-    List<Map<String, dynamic>> indicators = regionData['Indicatore'];
-    for (var indicator in indicators) {
-      if (indicator['Esito'] == 'Positivo' && indicator['Fascia'] == 3) {
-        punteggio += 1;
-        Text(punteggio.toString());
-      } else if (indicator['Esito'] == 'Negativo' && indicator['Fascia'] == 3) {
-        punteggio -= 1;
-        Text(punteggio.toString());
-      }
-    }
-  } */
+
+  //COMPRENDERE PERCHE' NON SI PRENDE IL PRIMO ELEMENTO
 
   @override
   Widget build(BuildContext context) {
@@ -26,23 +15,11 @@ class HappinessDetailsPage extends StatelessWidget {
     List<Map<String, dynamic>> indicators = regionData['Indicatore'];
     int punteggio = 0;
 
-    for (var indicator in indicators) {
-      if (indicator['Esito'] == 'Positivo' && indicator['Fascia'] == 3) {
-        punteggio += 1;
-      }
-      if (indicator['Esito'] == 'Negativo' && indicator['Fascia'] == 1) {
-        punteggio += 1;
-      }
+    //print(indicators['Esito']);
 
-      if (indicator['Esito'] == 'Negativo' && indicator['Fascia'] == 3) {
-        punteggio -= 1;
-      }
-      if (indicator['Esito'] == 'Positivo' && indicator['Fascia'] == 1) {
-        punteggio -= 1;
-      }
-    }
+    //Calcola punteggio
+    punteggio = calcolaPunteggio(indicators);
 
-    print("Punteggio: " + punteggio.toString());
 
     return Scaffold(
       appBar: AppBar(
@@ -74,29 +51,51 @@ class HappinessDetailsPage extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        "   $regionName     ",
+                        "   $regionName  ",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black87,
-                          fontSize: 28,
+                          fontSize: 26,
                         ),
                       ),
                       if (punteggio > 0)
-                        Text(
-                          '$punteggio',
-                          style: const TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25),
+                        Row(
+                          children: [
+                            Text(
+                              'Punti: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.grey.shade500),
+                            ),
+                            Text(
+                              '$punteggio',
+                              style: const TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25),
+                            ),
+                          ],
                         )
                       else
-                        Text(
-                          'Points: $punteggio',
-                          style: const TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25),
-                        )
+                        Row(
+                          children: [
+                            Text(
+                              'Punti: ',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.grey.shade500),
+                            ),
+                            Text(
+                              '$punteggio',
+                              style: const TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25),
+                            )
+                          ],
+                        ),
                     ],
                   ),
                 ),
@@ -115,7 +114,7 @@ class HappinessDetailsPage extends StatelessWidget {
                       child: Row(
                         children: [
                           if ((indicator['Esito'] == "Positivo" &&
-                                  indicator['Fascia'] == 3) ||
+                              indicator['Fascia'] == 3) ||
                               (indicator['Esito'] == "Negativo" &&
                                   indicator['Fascia'] == 1))
                             const Icon(
@@ -124,7 +123,7 @@ class HappinessDetailsPage extends StatelessWidget {
                               size: 18,
                             ),
                           if ((indicator['Esito'] == "Negativo" &&
-                                  indicator['Fascia'] == 3) ||
+                              indicator['Fascia'] == 3) ||
                               indicator['Esito'] == "Positivo" &&
                                   indicator['Fascia'] == 1)
                             const Icon(
@@ -133,7 +132,7 @@ class HappinessDetailsPage extends StatelessWidget {
                               size: 18,
                             ),
                           if ((indicator['Esito'] == "Negativo" ||
-                                  indicator['Esito'] == "Positivo") &&
+                              indicator['Esito'] == "Positivo") &&
                               indicator['Fascia'] == 2)
                             const Icon(
                               Icons.circle,
@@ -161,7 +160,8 @@ class HappinessDetailsPage extends StatelessWidget {
                             Icons.cancel,
                             color: Colors.red,
                             size: 18,
-                          ), */
+                          ),
+                        */
                         Text(
                           "Tipo di indice: ",
                           style: TextStyle(
@@ -171,12 +171,12 @@ class HappinessDetailsPage extends StatelessWidget {
                         const SizedBox(
                           width: 5,
                         ),
-                        if (indicator['Esito'] == null)
+                        /*if (indicator['Esito'] == null)
                           Text("Negativo",
                               style: TextStyle(color: Colors.grey.shade400))
-                        else
-                          Text('${indicator['Esito']}',
-                              style: TextStyle(color: Colors.grey.shade400)),
+                        else*/
+                        Text('${indicator['Esito']}',
+                            style: TextStyle(color: Colors.grey.shade400)),
                       ],
                     )),
                 const Divider()
@@ -185,5 +185,27 @@ class HappinessDetailsPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  int calcolaPunteggio(List<Map<String, dynamic>> indicators){
+    int punteggio = 0;
+    for (var indicator in indicators) {
+      if (indicator['Esito'] == 'Positivo' && indicator['Fascia'] == 3) {
+        punteggio += 1;
+      }
+      if (indicator['Esito'] == 'Negativo' && indicator['Fascia'] == 1) {
+        punteggio += 1;
+      }
+
+      if (indicator['Esito'] == 'Negativo' && indicator['Fascia'] == 3) {
+        punteggio -= 1;
+      }
+      if (indicator['Esito'] == 'Positivo' && indicator['Fascia'] == 1) {
+        punteggio -= 1;
+      }
+
+      print(punteggio);
+    }
+    return punteggio;
   }
 }
