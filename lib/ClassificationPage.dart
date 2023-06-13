@@ -10,20 +10,21 @@ class ClassificationPage extends StatefulWidget {
   State<ClassificationPage> createState() => _ClassificationPageState();
 }
 
-class _ClassificationPageState extends State<ClassificationPage> {
+class _ClassificationPageState extends State<ClassificationPage>
+    with SingleTickerProviderStateMixin {
   late bool isLoading = true; // Aggiunta variabile di caricamento
+  late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
     connectToMongoDB();
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   static var userCollection;
   Map<String, double> sumPositiveMap = {};
   Map<String, double> sumNegativeMap = {};
-  List<MapEntry<String, double>> sortedPositiveEntries = [];
-  List<MapEntry<String, double>> sortedNegativeEntries = [];
 
   Future<void> connectToMongoDB() async {
     userCollection = await MongoDatabase.connect();
@@ -31,7 +32,6 @@ class _ClassificationPageState extends State<ClassificationPage> {
 
     for (final document in documents) {
       final regione = document['DescrRegione'] as String;
-      //final indicatore = document['Indicatore'] as String;
       final totale = document['Totale'] as double;
       final esito = document['Esito'] as String;
 
@@ -43,19 +43,22 @@ class _ClassificationPageState extends State<ClassificationPage> {
 
       setState(() {
         isLoading =
-            false; // Imposta isLoading su false dopo il caricamento dei dati
+        false; // Imposta isLoading su false dopo il caricamento dei dati
       });
-      sortedPositiveEntries = sumPositiveMap.entries.toList()
-        ..sort((a, b) => a.value.compareTo(b.value));
-
-      sortedNegativeEntries = sumNegativeMap.entries.toList()
-        ..sort((a, b) => a.value.compareTo(b.value));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    var i=1;
+
+    //Liste per ordinare le somme in maniera descrescente
+    List<String> sortedPositiveKeys = sumPositiveMap.keys.toList();
+    sortedPositiveKeys
+        .sort((a, b) => sumPositiveMap[b]!.compareTo(sumPositiveMap[a]!));
+
+    List<String> sortedNegativeKeys = sumNegativeMap.keys.toList();
+    sortedNegativeKeys
+        .sort((a, b) => sumNegativeMap[b]!.compareTo(sumNegativeMap[a]!));
 
     return Scaffold(
       appBar: AppBar(
@@ -63,87 +66,65 @@ class _ClassificationPageState extends State<ClassificationPage> {
           alignment: Alignment.center,
           child: Text('Classificazione regioni', style: TextStyle()),
         ),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const [
+            Tab(
+              text: 'Somma totali\n'
+                  'Indici positivi',
+              icon: Icon(Icons.check_circle, color: Colors.green, size: 25),
+            ),
+            Tab(
+              text: 'Somma totali\n '
+                  'Indici negativi',
+              icon: Icon(Icons.cancel, color: Colors.red, size: 25),
+            ),
+          ],
+        ),
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              children: <Widget>[
-                ExpansionTile(
-                  title: const Row(
-                    children: [
-                       Icon(
-                        Icons.check_circle,
-                        color: Colors.green,
-                        size: 25,
-                      ),
-                      Text(
-                        ' Somma dei totali - Indici positivi',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  children: <Widget>[
-                    for (var i = 0; i < sumPositiveMap.keys.length; i++)
-                      //for (final regione in sumPositiveMap.keys)
-                      ListTile(
-                        title: Text(
-                          (i +1).toString()+". " + sumPositiveMap.keys.toList()[i], //regione
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Somma: ${sumPositiveMap.values.toList()[i]}', //${sumPositiveMap[regione]
-                          style: const TextStyle(
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ),
+          : TabBarView(
+        controller: _tabController,
+        children: [
+          ListView.builder(
+            itemCount: sortedPositiveKeys.length,
+            itemBuilder: (context, index) {
+              final regione = sortedPositiveKeys[index];
+              final somma = sumPositiveMap[regione]!.toStringAsFixed(3);
 
-                  ],
+              return ListTile(
+                title: Text(
+                  (index + 1).toString() + ". " + regione,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                ExpansionTile(
-                  title: const Row(
-                    children: [
-                      Icon(
-                        Icons.cancel,
-                        color: Colors.red,
-                        size: 25,
-                      ),
-                      Text(
-                        ' Somma dei totali - Indici negativi',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  children: <Widget>[
-                    for (var i = 0; i < sumNegativeMap.keys.length; i++)
-                      ListTile(
-                        title: Text(
-                          (i +1).toString()+". " + sumNegativeMap.keys.toList()[i],//regione,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Somma: ${sumNegativeMap.values.toList()[i]}',//'Somma: ${sumNegativeMap[regione]}',
-                          style: const TextStyle(
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ),
-                  ],
+                subtitle: Text(
+                  'Somma: $somma',
+                  style: const TextStyle(fontStyle: FontStyle.italic),
                 ),
-                if (isLoading) // Indicatore di caricamento circolare condizionale
-                  const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-              ],
-            ),
+              );
+            },
+          ),
+          ListView.builder(
+            itemCount: sortedNegativeKeys.length,
+            itemBuilder: (context, index) {
+              final regione = sortedNegativeKeys[index];
+              final somma = sumNegativeMap[regione]!.toStringAsFixed(3);
+
+              return ListTile(
+                title: Text(
+                  (index + 1).toString() + ". " + regione,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(
+                  'Somma: $somma',
+                  style: const TextStyle(fontStyle: FontStyle.italic),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
