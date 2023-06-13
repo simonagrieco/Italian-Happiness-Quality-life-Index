@@ -3,6 +3,8 @@ import 'package:floating_tabbar/Widgets/top_tabbar.dart';
 import 'package:floating_tabbar/floating_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'ClassificationPage.dart';
+import 'InformationPage.dart';
 import 'ItalyMapPage.dart';
 import 'CategoryIndexPage.dart';
 import 'TableOfIndex.dart';
@@ -49,8 +51,8 @@ class _TabbarState extends State<Tabbar> {
         TabItem(
           onTap: () {},
           selectedLeadingIcon: const Icon(Icons.table_chart_outlined),
-          title: const Text("Data"),
-          tab: TableOfIndex(title: '',),
+          title: const Text("Classificazione"),
+          tab: ClassificationPage(),
         ),
         TabItem(
           onTap: () {},
@@ -62,7 +64,7 @@ class _TabbarState extends State<Tabbar> {
           onTap: () {},
           selectedLeadingIcon: const Icon(Icons.file_present_rounded),
           title: const Text("Lavoro svolto"),
-          tab: Text("ciao")
+          tab: InformationPage(),
         ),
       ];
       return _list;

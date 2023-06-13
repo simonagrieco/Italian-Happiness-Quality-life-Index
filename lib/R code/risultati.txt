@@ -1,3 +1,5 @@
+//fare rank
+
 
 "Indicatore" "DescrRegione" "Totale" "Fascia" "Esito"
 "Violenze sessuali" "Emilia Romagna" 12.3182778514286 3 "Negativo"

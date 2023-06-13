@@ -65,12 +65,23 @@ class _CategoryIndexState extends State<CategoryIndex> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
 
+    List<IconData> icone = [
+      Icons.security_rounded,
+      Icons.work,
+      Icons.people_alt_rounded,
+      Icons.home_filled,
+      Icons.accessibility,
+      Icons.accessible,
+      Icons.onetwothree_sharp,
+      Icons.account_balance,
+      Icons.account_box,
+      Icons.account_box,
+    ];
 
-
+    
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80.0,
@@ -114,9 +125,14 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 String categoria = lista_macrocategorie.keys.elementAt(index);
                 List<String> indiciCategoria = lista_macrocategorie[categoria]!;
                 return ExpansionTile(
-                  title: Text(
-                    categoria,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Row(
+                    children: [
+                      Icon(icone[index % icone.length]),
+                      Text(
+                        "  "+categoria,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                   children: indiciCategoria.map((indice) {
                     bool isPositive = indici_positivi.contains(indice);
@@ -124,7 +140,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
                       leading: isPositive
                           ? const Icon(Icons.check_circle, color: Colors.green)
                           : const Icon(Icons.cancel, color: Colors.red),
-                      title: Text("$indice"),
+                      title:Text("$indice"),
                     );
                   }).toList(),
                 );
