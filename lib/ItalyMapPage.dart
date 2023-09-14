@@ -5,13 +5,11 @@ import 'HappinessDetailsPage.dart';
 import 'dbHelper/mongodb.dart';
 
 class ItalyMapPage extends StatefulWidget {
-
   @override
   _ItalyMapPageState createState() => _ItalyMapPageState();
 }
 
 class _ItalyMapPageState extends State<ItalyMapPage> {
-
   final List<LatLng> cityCoordinates = [
     LatLng(42.3505, 13.3995), // L'Aquila - Abruzzo
     LatLng(40.6395, 15.8050), // Potenza - Basilicata
@@ -33,10 +31,14 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
     LatLng(43.1107, 12.3896), // Perugia - Umbria
     LatLng(45.4342, 12.3388), // Venezia - Veneto
   ];
+  List<int> lista_punteggi = [];
+  int punteggio = 0;
 
   late final List<String> regionNames = [];
   late final List<Map<String, dynamic>> regionData = [];
-  late bool isLoading = true; // Aggiunta variabile di caricamento
+
+  //late bool isLoading = true;
+  bool isDataLoaded = false; // Aggiunta variabile di caricamento iniziale
 
   @override
   void initState() {
@@ -49,6 +51,8 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
   Future<void> connectToMongoDB() async {
     userCollection = await MongoDatabase.connect();
     final documents = await userCollection.find().toList();
+    Map<String, int> punteggiRegioni =
+        {}; // Creazione di un dizionario per memorizzare i punteggi delle regioni
 
     for (final document in documents) {
       final regione = document['DescrRegione'] as String;
@@ -62,8 +66,8 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
         regionNames.add(regione);
       }
 
-      final regionIndex = regionData.indexWhere((data) => data['DescrRegione'] == regione);
-
+      final regionIndex =
+          regionData.indexWhere((data) => data['DescrRegione'] == regione);
       if (regionIndex >= 0) {
         regionData[regionIndex]['Indicatore'].add({
           'Indicatore': indicatore,
@@ -84,75 +88,76 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
         });
       }
 
-      //calcolo del punteggio
-      /*if ((esito == 'Positivo' && fascia == 3) || esito == 'Negativo' && fascia == 1) {
-        setState(() {
-          punteggio += 1;
-        });
+      //CALCOLO PUNTEGGIO
+      punteggio = 0; // Inizializza il punteggio per ogni regione
+      if ((esito == 'Positivo' && fascia == 3) ||
+          (esito == 'Negativo' && fascia == 1)) {
+        punteggio += 1; // Incrementa il punteggio di 1
+      } else if ((esito == 'Negativo' && fascia == 3) ||
+          (esito == 'Positivo' && fascia == 1)) {
+        punteggio -= 1; // Decrementa il punteggio di 1
       }
-      if ((esito == 'Negativo' && fascia == 3) || esito == 'Positivo' && fascia == 1) {
-        setState(() {
-          punteggio -= 1;
-        });
-      } */
+      // Aggiornamento del punteggio della regione corrente nel dizionario punteggiRegioni
+      punteggiRegioni.update(regione, (value) => value + punteggio,
+          ifAbsent: () => punteggio);
 
       setState(() {
-        isLoading =
-        false; // Imposta isLoading su false dopo il caricamento dei dati
+        //isLoading = false; // Imposta isLoading su false dopo il caricamento dei dati
+        isDataLoaded = true;
       });
     }
-  }
 
+    // Estrazione dei punteggi dal dizionario e inserimento nella lista_punteggi
+    regionNames.forEach((regione) {
+      lista_punteggi.add(punteggiRegioni[regione] ?? 0);
+    });
+    print(lista_punteggi.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<Marker> markers = [];
-
-    for (int i = 0; i < cityCoordinates.length; i++) {
-      markers.add(
-        Marker(
-          width: 80.0,
-          height: 80.0,
-          point: cityCoordinates[i],
-          builder: (ctx) => IconButton(
-            /*icon: punteggio > 0
-                ? const Icon(
-              Icons.sentiment_very_satisfied,
-              color: Colors.black,
-            )
-                : const Icon(
-              Icons.sentiment_dissatisfied_rounded,
-              color: Colors.black,
-            ), */
-            icon: const Icon(
+    if (isDataLoaded) {
+      List<Marker> markers = [];
+      for (int i = 0; i < cityCoordinates.length; i++) {
+        markers.add(
+          Marker(
+            width: 80.0,
+            height: 80.0,
+            point: cityCoordinates[i],
+            builder: (ctx) => IconButton(
+                icon: Image.asset(
+                  lista_punteggi[i] > 5 ? 'assets/felice.png' :
+                  (lista_punteggi[i] >= -6) && (lista_punteggi[i]<=5) ? 'assets/neutro.png' :
+                  'assets/triste.png',
+                  width: 50,
+                ),
+              /*icon: const Icon(
               Icons.location_on_rounded,
               color: Colors.lightBlue,
-            ),
-            onPressed: () async {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => HappinessDetailsPage(
-                    regionData: regionData[i],
+            ),*/
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => HappinessDetailsPage(
+                      regionData: regionData[i],
+                      punteggio: lista_punteggi[i],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
+          ),
+        );
+      }
+      return Scaffold(
+        appBar: AppBar(
+          title: const Align(
+            alignment: Alignment.center,
+            child: Text('Mappa dell\'Italia', style: TextStyle()),
           ),
         ),
-      );
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Align(
-          alignment: Alignment.center,
-          child: Text('Mappa dell\'Italia', style: TextStyle()),
-        ),
-      ),
-      body: AbsorbPointer(
-        absorbing: isLoading,
-        child: Stack(
+        body: Stack(
           children: [
             FlutterMap(
               options: MapOptions(
@@ -162,7 +167,7 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
               layers: [
                 TileLayerOptions(
                   urlTemplate:
-                  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                   subdomains: ['a', 'b', 'c'],
                 ),
                 MarkerLayerOptions(
@@ -170,15 +175,25 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
                 ),
               ],
             ),
-            if (isLoading) // Indicatore di caricamento circolare condizionale
-              const Center(
-                child: CircularProgressIndicator(),
-              ),
+            /*if (isLoading) // Indicatore di caricamento circolare condizionale
+                const Center(
+                  child: CircularProgressIndicator(),
+                ),*/
           ],
         ),
-      ),
-    );
+      );
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Align(
+            alignment: Alignment.center,
+            child: Text('Mappa dell\'Italia', style: TextStyle()),
+          ),
+        ),
+        body: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
   }
-
-
 }

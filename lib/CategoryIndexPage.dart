@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:italian_happiness_index/TopLowRegionIndexPage.dart';
 import 'package:italian_happiness_index/dbHelper/mongodb.dart';
 
 class CategoryIndex extends StatefulWidget {
@@ -13,6 +14,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
   Map<String, List<String>> lista_macrocategorie = {};
 
   late bool isLoading = true; // Aggiunta variabile di caricamento
+  late String selectedMacrocategoria;
 
   /*Map<String, List<String>> macroCategorie = {
     'Sicurezza': [],
@@ -67,7 +69,6 @@ class _CategoryIndexState extends State<CategoryIndex> {
 
   @override
   Widget build(BuildContext context) {
-
     List<IconData> icone = [
       Icons.security_rounded,
       Icons.work,
@@ -81,7 +82,6 @@ class _CategoryIndexState extends State<CategoryIndex> {
       Icons.account_box,
     ];
 
-    
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80.0,
@@ -127,9 +127,29 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 return ExpansionTile(
                   title: Row(
                     children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            selectedMacrocategoria = categoria;
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  TopLowIndexPage(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.info,
+                          color: Colors.blueAccent,
+                          size: 22,
+                        ),
+                      ),
+                      SizedBox(width: 20,),
                       Icon(icone[index % icone.length]),
                       Text(
-                        "  "+categoria,
+                        "  " + categoria,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -140,7 +160,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
                       leading: isPositive
                           ? const Icon(Icons.check_circle, color: Colors.green)
                           : const Icon(Icons.cancel, color: Colors.red),
-                      title:Text("$indice"),
+                      title: Text("$indice"),
                     );
                   }).toList(),
                 );

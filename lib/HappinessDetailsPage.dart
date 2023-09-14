@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 
 class HappinessDetailsPage extends StatelessWidget {
   final Map<String, dynamic> regionData;
-  int punteggio = 0;
+  final int punteggio;
 
-  HappinessDetailsPage({required this.regionData});
+  HappinessDetailsPage({required this.regionData, required this.punteggio});
 
   //COMPRENDERE PERCHE' NON SI PRENDE IL PRIMO ELEMENTO
 
   @override
   Widget build(BuildContext context) {
+
     String regionName = regionData['DescrRegione'];
     List<Map<String, dynamic>> indicators = regionData['Indicatore'];
-    int punteggio = 0;
-
-    //print(indicators['Esito']);
 
     //Calcola punteggio
-    punteggio = calcolaPunteggio(indicators);
+    //int punteggio = 0;
+    //punteggio = calcolaPunteggio(indicators);
 
     return Scaffold(
       appBar: AppBar(
@@ -168,7 +167,7 @@ class HappinessDetailsPage extends StatelessWidget {
     );
   }
 
-  int calcolaPunteggio(List<Map<String, dynamic>> indicators) {
+  /*int calcolaPunteggio(List<Map<String, dynamic>> indicators) {
     int punteggio = 0;
     for (var indicator in indicators) {
       if (indicator['Esito'] == 'Positivo' && indicator['Fascia'] == 3) {
@@ -188,5 +187,5 @@ class HappinessDetailsPage extends StatelessWidget {
       print(punteggio);
     }
     return punteggio;
-  }
+  } */
 }

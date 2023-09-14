@@ -3,7 +3,7 @@ import 'package:floating_tabbar/Widgets/top_tabbar.dart';
 import 'package:floating_tabbar/floating_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'ClassificationPage.dart';
+import 'RankingPage.dart';
 import 'InformationPage.dart';
 import 'ItalyMapPage.dart';
 import 'CategoryIndexPage.dart';
