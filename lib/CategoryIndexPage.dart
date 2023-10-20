@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:italian_happiness_index/TopLowRegionIndexPage.dart';
 import 'package:italian_happiness_index/dbHelper/mongodb.dart';
 
 class CategoryIndex extends StatefulWidget {
@@ -38,6 +37,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
 
   void connectToMongoDB() async {
     collection = await MongoDatabase.connect();
+
     final documents = await collection.find().toList();
 
     for (final document in documents) {
@@ -74,12 +74,8 @@ class _CategoryIndexState extends State<CategoryIndex> {
       Icons.work,
       Icons.people_alt_rounded,
       Icons.home_filled,
-      Icons.accessibility,
-      Icons.accessible,
-      Icons.onetwothree_sharp,
+      Icons.attach_money,
       Icons.account_balance,
-      Icons.account_box,
-      Icons.account_box,
     ];
 
     return Scaffold(
@@ -88,27 +84,41 @@ class _CategoryIndexState extends State<CategoryIndex> {
         title: Container(
           child: const Column(
             children: [
-              Text('Categorie degli indici'),
+              /*Text('Categorie degli indici'), */
               SizedBox(
                 height: 5,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              Column(
                 children: [
-                  Text(
-                    "Indici positivi ",
-                    style: TextStyle(fontSize: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Indici positivi ",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Icon(Icons.check_circle, color: Colors.green),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Text(
+                        "Indici negativi ",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Icon(Icons.cancel, color: Colors.red),
+                    ],
                   ),
-                  Icon(Icons.check_circle, color: Colors.green),
                   SizedBox(
-                    width: 30,
+                    height: 5,
                   ),
                   Text(
-                    "Indici negativi ",
-                    style: TextStyle(fontSize: 15),
+                    "Clicca su un indicatore per vedere la sua proezione sulla mappa",
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontSize: 13
+                    ),
                   ),
-                  Icon(Icons.cancel, color: Colors.red),
                 ],
               ),
             ],
@@ -119,6 +129,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
         absorbing: isLoading,
         child: Stack(
           children: [
+
             ListView.builder(
               itemCount: lista_macrocategorie.length,
               itemBuilder: (BuildContext context, int index) {
@@ -127,7 +138,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 return ExpansionTile(
                   title: Row(
                     children: [
-                      IconButton(
+                      /*IconButton(
                         onPressed: () {
                           setState(() {
                             selectedMacrocategoria = categoria;
@@ -146,11 +157,11 @@ class _CategoryIndexState extends State<CategoryIndex> {
                           size: 22,
                         ),
                       ),
-                      SizedBox(width: 20,),
+                      SizedBox(width: 20,), */
                       Icon(icone[index % icone.length]),
                       Text(
-                        "  " + categoria,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        "  $categoria",
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -160,7 +171,24 @@ class _CategoryIndexState extends State<CategoryIndex> {
                       leading: isPositive
                           ? const Icon(Icons.check_circle, color: Colors.green)
                           : const Icon(Icons.cancel, color: Colors.red),
-                      title: Text("$indice"),
+                      title: Text(
+                        "$indice",
+                        style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                      onTap: () {
+                        // Quando l'elemento viene cliccato, mostra l'immagine corrispondente
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            // Rimuovi temporaneamente gli underscore solo per il confronto
+                            //String cleanImageName = indice.replaceAll("_", " ");
+                            return ImageDialog(
+                                indice); // Passa sia il nome pulito che l'originale
+                          },
+                        );
+                      },
                     );
                   }).toList(),
                 );
@@ -171,6 +199,41 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 child: CircularProgressIndicator(),
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ImageDialog extends StatefulWidget {
+  final String originalImageName;
+
+  ImageDialog(this.originalImageName);
+
+  @override
+  _ImageDialogState createState() => _ImageDialogState();
+}
+
+class _ImageDialogState extends State<ImageDialog> {
+  double _imageScale = 1.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: GestureDetector(
+        onScaleUpdate: (details) {
+          setState(() {
+            _imageScale = details.scale;
+          });
+        },
+        onTap: () {
+          Navigator.of(context).pop();
+        },
+        child: Transform.scale(
+          scale: _imageScale,
+          child: Image.asset(
+            'assets/layout_stampa/${widget.originalImageName}.png',
+          ),
         ),
       ),
     );

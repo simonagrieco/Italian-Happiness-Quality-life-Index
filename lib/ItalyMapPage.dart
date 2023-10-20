@@ -61,6 +61,7 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
       final fascia = document['Fascia'] as int;
       final esito = document['Esito'] as String;
       final macrocategoria = document['Macrocategoria'] as String;
+      final unitamisura = document['UnitaMisura'] as String;
 
       if (!regionNames.contains(regione)) {
         regionNames.add(regione);
@@ -75,6 +76,7 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
           'Fascia': fascia,
           'Esito': esito,
           'Macrocategoria': macrocategoria,
+          'UnitaMisura': unitamisura,
         });
       } else {
         regionData.add({
@@ -125,16 +127,14 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
             height: 80.0,
             point: cityCoordinates[i],
             builder: (ctx) => IconButton(
-                icon: Image.asset(
-                  lista_punteggi[i] > 5 ? 'assets/felice.png' :
-                  (lista_punteggi[i] >= -6) && (lista_punteggi[i]<=5) ? 'assets/neutro.png' :
-                  'assets/triste.png',
-                  width: 50,
-                ),
-              /*icon: const Icon(
-              Icons.location_on_rounded,
-              color: Colors.lightBlue,
-            ),*/
+              icon: Image.asset(
+                lista_punteggi[i] > 1
+                    ? 'assets/felice.png'
+                    : (lista_punteggi[i] >= -1) && (lista_punteggi[i] <= 1)
+                        ? 'assets/neutro.png'
+                        : 'assets/triste.png',
+                width: 50,
+              ),
               onPressed: () async {
                 Navigator.push(
                   context,
@@ -152,9 +152,35 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
       }
       return Scaffold(
         appBar: AppBar(
-          title: const Align(
-            alignment: Alignment.center,
-            child: Text('Mappa dell\'Italia', style: TextStyle()),
+          title: Row(
+            children: [
+              const Text('Mappa Italia', style: TextStyle()),
+              const SizedBox(width: 8), // Aggiungi spazio tra il testo e l'icona
+              InkWell(
+                onTap: () {
+                  // Quando l'utente fa clic sull'icona di informazione, mostra il popup
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Fonte dati'),
+                        content: const Text(
+                            'https://github.com/IlSole24ORE/QDV2020'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Chiudi il popup
+                            },
+                            child: const Text('Chiudi'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: const Icon(Icons.info),
+              ),
+            ],
           ),
         ),
         body: Stack(
@@ -185,10 +211,7 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: const Align(
-            alignment: Alignment.center,
-            child: Text('Mappa dell\'Italia', style: TextStyle()),
-          ),
+          title: const Text('Mappa Italia', style: TextStyle()),
         ),
         body: const Center(
           child: CircularProgressIndicator(),

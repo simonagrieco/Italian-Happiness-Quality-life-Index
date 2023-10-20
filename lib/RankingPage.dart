@@ -61,9 +61,40 @@ class _ClassificationPageState extends State<ClassificationPage>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Align(
-          alignment: Alignment.center,
-          child: Text('Rank per regione', style: TextStyle()),
+        title: AppBar(
+          title: Align(
+            alignment: Alignment.center,
+            child: Row(
+              children: [
+                Text('Rank per regione', style: TextStyle()),
+                SizedBox(width: 8), // Aggiungi spazio tra il testo e l'icona
+                InkWell(
+                  onTap: () {
+                    // Quando l'utente fa clic sull'icona di informazione, mostra il popup
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Nota'),
+                          content: Text(
+                              'Questa è semplicemente la somma dei valori di ogni indicatore senza tenere conto dell\'unità di misura'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(); // Chiudi il popup
+                              },
+                              child: Text('Chiudi'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: Icon(Icons.info),
+                ),
+              ],
+            ),
+          ),
         ),
         bottom: TabBar(
           controller: _tabController,
@@ -131,8 +162,7 @@ class _ClassificationPageState extends State<ClassificationPage>
                           Text(
                             regione,
                             style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red),
+                                fontWeight: FontWeight.bold, color: Colors.red),
                           ),
                         ],
                       ),

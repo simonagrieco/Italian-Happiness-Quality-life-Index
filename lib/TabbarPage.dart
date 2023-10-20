@@ -1,14 +1,10 @@
 import 'package:floating_tabbar/Models/tab_item.dart';
-import 'package:floating_tabbar/Widgets/top_tabbar.dart';
 import 'package:floating_tabbar/floating_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'RankingPage.dart';
-import 'InformationPage.dart';
 import 'ItalyMapPage.dart';
 import 'CategoryIndexPage.dart';
-import 'TableOfIndex.dart';
-
 
 class Tabbar extends StatefulWidget {
   const Tabbar({Key? key}) : super(key: key);
@@ -50,22 +46,17 @@ class _TabbarState extends State<Tabbar> {
         ),
         TabItem(
           onTap: () {},
-          selectedLeadingIcon: const Icon(Icons.table_chart_outlined),
-          title: const Text("Classificazione"),
-          tab: ClassificationPage(),
-        ),
-        TabItem(
-          onTap: () {},
           selectedLeadingIcon: const Icon(Icons.library_books),
           title: const Text("Report"),
           tab: CategoryIndex(),
         ),
         TabItem(
           onTap: () {},
-          selectedLeadingIcon: const Icon(Icons.file_present_rounded),
-          title: const Text("Lavoro svolto"),
-          tab: InformationPage(),
+          selectedLeadingIcon: const Icon(Icons.table_chart_outlined),
+          title: const Text("Classificazione"),
+          tab: ClassificationPage(),
         ),
+
       ];
       return _list;
     }

@@ -19,8 +19,6 @@ qualita <- merge(qualita, df, by.x = "DescrProvincia")
 qualita$DescrRegione <- as.factor(qualita$DescrRegione)
 
 
-
-
 # Specifica il percorso e il nome del file di output
 output_file <- "C:/Users/simon/OneDrive/Documenti/Python/italian_happiness_index_py/datasets/risultati.txt"
 file_conn <- file(output_file, open = "w")  # Apre il file in modalità scrittura
