@@ -10,6 +10,7 @@ class ItalyMapPage extends StatefulWidget {
 }
 
 class _ItalyMapPageState extends State<ItalyMapPage> {
+  
   final List<LatLng> cityCoordinates = [
     LatLng(42.3505, 13.3995), // L'Aquila - Abruzzo
     LatLng(40.6395, 15.8050), // Potenza - Basilicata

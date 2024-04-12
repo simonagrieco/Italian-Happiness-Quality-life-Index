@@ -2,6 +2,7 @@ import 'package:floating_tabbar/Models/tab_item.dart';
 import 'package:floating_tabbar/floating_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:italian_happiness_index/OccupationIndexPage.dart';
 import 'RankingPage.dart';
 import 'ItalyMapPage.dart';
 import 'CategoryIndexPage.dart';
@@ -55,6 +56,12 @@ class _TabbarState extends State<Tabbar> {
           selectedLeadingIcon: const Icon(Icons.table_chart_outlined),
           title: const Text("Classificazione"),
           tab: ClassificationPage(),
+        ),
+        TabItem(
+          onTap: () {},
+          selectedLeadingIcon: const Icon(Icons.work_outlined),
+          title: const Text("Occupazione"),
+          tab: OccupationIndexPage(),
         ),
 
       ];

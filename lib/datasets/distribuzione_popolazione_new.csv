@@ -1,0 +1,108 @@
+ITTER107;Territorio;Tipo di indicatore demografico;Sesso;ETA1;Stato civile;TIME;Value;latitudine;longitudine
+ITC11;Torino;popolazione al 1º gennaio;totale;TOTAL;totale;2023;2204632;45.0703;7.6869
+ITC12;Vercelli;popolazione al 1º gennaio;totale;TOTAL;totale;2023;165892;45.3231;8.4233
+ITC13;Biella;popolazione al 1º gennaio;totale;TOTAL;totale;2023;169106;45.5628;8.053
+ITC14;Verbano-Cusio-Ossola;popolazione al 1º gennaio;totale;TOTAL;totale;2023;154038;45.9784;8.4439
+ITC15;Novara;popolazione al 1º gennaio;totale;TOTAL;totale;2023;362502;45.4459;8.6218
+ITC16;Cuneo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;580736;44.3845;7.5415
+ITC17;Asti;popolazione al 1º gennaio;totale;TOTAL;totale;2023;207951;44.8996;8.0447
+ITC18;Alessandria;popolazione al 1º gennaio;totale;TOTAL;totale;2023;406494;44.9158;8.615
+ITC20;Valle d'Aosta / Vallée d'Aoste;popolazione al 1º gennaio;totale;TOTAL;totale;2023;123130;45.737;7.315
+ITC31;Imperia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;208792;43.8832;8.0377
+ITC32;Savona;popolazione al 1º gennaio;totale;TOTAL;totale;2023;267366;44.3083;8.4786
+ITC33;Genova;popolazione al 1º gennaio;totale;TOTAL;totale;2023;816606;44.4056;8.9463
+ITC34;La Spezia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;214872;44.11;9.8272
+ITC41;Varese;popolazione al 1º gennaio;totale;TOTAL;totale;2023;879731;45.8174;8.8265
+ITC42;Como;popolazione al 1º gennaio;totale;TOTAL;totale;2023;597117;45.8081;9.0852
+ITC43;Lecco;popolazione al 1º gennaio;totale;TOTAL;totale;2023;332775;45.8554;9.39
+ITC44;Sondrio;popolazione al 1º gennaio;totale;TOTAL;totale;2023;178795;46.1709;9.8717
+ITC45;Milano;popolazione al 1º gennaio;totale;TOTAL;totale;2023;3228006;45.4642;9.19
+ITC46;Bergamo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1106303;45.694;9.6698
+ITC47;Brescia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1257326;45.5416;10.2118
+ITC48;Pavia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;536406;45.1847;9.1586
+ITC49;Lodi;popolazione al 1º gennaio;totale;TOTAL;totale;2023;228136;45.3097;9.5037
+ITC4A;Cremona;popolazione al 1º gennaio;totale;TOTAL;totale;2023;352189;45.1334;10.024
+ITC4B;Mantova;popolazione al 1º gennaio;totale;TOTAL;totale;2023;406119;45.1568;10.7919
+ITD10;Bolzano / Bozen;popolazione al 1º gennaio;totale;TOTAL;totale;2023;534147;46.4983;11.345
+ITD20;Trento;popolazione al 1º gennaio;totale;TOTAL;totale;2023;542996;46.0664;11.1212
+ITD31;Verona;popolazione al 1º gennaio;totale;TOTAL;totale;2023;925656;45.4384;10.9916
+ITD32;Vicenza;popolazione al 1º gennaio;totale;TOTAL;totale;2023;852779;45.5475;11.5469
+ITD33;Belluno;popolazione al 1º gennaio;totale;TOTAL;totale;2023;198105;46.1444;12.2215
+ITD34;Treviso;popolazione al 1º gennaio;totale;TOTAL;totale;2023;878828;45.6669;12.243
+ITD35;Venezia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;835895;45.4408;12.3155
+ITD36;Padova;popolazione al 1º gennaio;totale;TOTAL;totale;2023;930349;45.4064;11.8768
+ITD37;Rovigo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;227941;45.0711;11.7906
+ITD41;Pordenone;popolazione al 1º gennaio;totale;TOTAL;totale;2023;310133;45.9544;12.6603
+ITD42;Udine;popolazione al 1º gennaio;totale;TOTAL;totale;2023;517376;46.0711;13.2344
+ITD43;Gorizia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;138034;45.9414;13.6219
+ITD44;Trieste;popolazione al 1º gennaio;totale;TOTAL;totale;2023;228705;45.6495;13.7768
+ITD51;Piacenza;popolazione al 1º gennaio;totale;TOTAL;totale;2023;284220;45.0519;9.6929
+ITD52;Parma;popolazione al 1º gennaio;totale;TOTAL;totale;2023;451688;44.8015;10.3279
+ITD53;Reggio nell'Emilia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;526990;44.6981;10.6318
+ITD54;Modena;popolazione al 1º gennaio;totale;TOTAL;totale;2023;704332;44.6471;10.9252
+ITD55;Bologna;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1014124;44.4949;11.3426
+ITD56;Ferrara;popolazione al 1º gennaio;totale;TOTAL;totale;2023;339287;44.8378;11.6208
+ITD57;Ravenna;popolazione al 1º gennaio;totale;TOTAL;totale;2023;386355;44.4184;12.2037
+ITD58;Forlì-Cesena;popolazione al 1º gennaio;totale;TOTAL;totale;2023;391648;44.2223;12.0406
+ITD59;Rimini;popolazione al 1º gennaio;totale;TOTAL;totale;2023;338934;44.0678;12.5695
+ITE11;Massa-Carrara;popolazione al 1º gennaio;totale;TOTAL;totale;2023;187583;44.0366;10.1021
+ITE12;Lucca;popolazione al 1º gennaio;totale;TOTAL;totale;2023;382184;43.8376;10.4951
+ITE13;Pistoia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;289759;43.9336;10.9211
+ITE14;Firenze;popolazione al 1º gennaio;totale;TOTAL;totale;2023;988194;43.7696;11.2558
+ITE15;Prato;popolazione al 1º gennaio;totale;TOTAL;totale;2023;259244;43.8806;11.097
+ITE16;Livorno;popolazione al 1º gennaio;totale;TOTAL;totale;2023;326605;43.5485;10.3106
+ITE17;Pisa;popolazione al 1º gennaio;totale;TOTAL;totale;2023;417170;43.7228;10.4017
+ITE18;Arezzo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;334052;43.4638;11.8787
+ITE19;Siena;popolazione al 1º gennaio;totale;TOTAL;totale;2023;260557;43.3186;11.3305
+ITE1A;Grosseto;popolazione al 1º gennaio;totale;TOTAL;totale;2023;216633;42.7651;11.1136
+ITE21;Perugia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;639224;43.1107;12.3908
+ITE22;Terni;popolazione al 1º gennaio;totale;TOTAL;totale;2023;217183;42.5635;12.6411
+ITE31;Pesaro e Urbino;popolazione al 1º gennaio;totale;TOTAL;totale;2023;349529;43.911;12.9133
+ITE32;Ancona;popolazione al 1º gennaio;totale;TOTAL;totale;2023;461655;43.6158;13.5189
+ITE33;Macerata;popolazione al 1º gennaio;totale;TOTAL;totale;2023;303828;43.3004;13.4534
+ITE34;Ascoli Piceno;popolazione al 1º gennaio;totale;TOTAL;totale;2023;201462;42.8547;13.5749
+ITE41;Viterbo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;308158;42.4174;12.1047
+ITE42;Rieti;popolazione al 1º gennaio;totale;TOTAL;totale;2023;150457;42.404;12.8628
+ITE43;Roma;popolazione al 1º gennaio;totale;TOTAL;totale;2023;4227059;41.9028;12.4964
+ITE44;Latina;popolazione al 1º gennaio;totale;TOTAL;totale;2023;566996;41.4668;12.9045
+ITE45;Frosinone;popolazione al 1º gennaio;totale;TOTAL;totale;2023;467866;41.6401;13.3516
+ITF11;L'Aquila;popolazione al 1º gennaio;totale;TOTAL;totale;2023;287806;42.3505;13.3995
+ITF12;Teramo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;299071;42.6589;13.7044
+ITF13;Pescara;popolazione al 1º gennaio;totale;TOTAL;totale;2023;313110;42.4612;14.2166
+ITF14;Chieti;popolazione al 1º gennaio;totale;TOTAL;totale;2023;372640;42.3502;14.1675
+ITF21;Isernia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;79912;41.591;14.2251
+ITF22;Campobasso;popolazione al 1º gennaio;totale;TOTAL;totale;2023;210724;41.561;14.6671
+ITF31;Caserta;popolazione al 1º gennaio;totale;TOTAL;totale;2023;906074;41.0742;14.3302
+ITF32;Benevento;popolazione al 1º gennaio;totale;TOTAL;totale;2023;263125;41.1291;14.7815
+ITF33;Napoli;popolazione al 1º gennaio;totale;TOTAL;totale;2023;2980338;40.8522;14.2681
+ITF34;Avellino;popolazione al 1º gennaio;totale;TOTAL;totale;2023;398932;40.914;14.7941
+ITF35;Salerno;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1061067;40.6782;14.7597
+ITF41;Foggia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;595682;41.4623;15.5436
+ITF42;Bari;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1225048;41.1171;16.8719
+ITF43;Taranto;popolazione al 1º gennaio;totale;TOTAL;totale;2023;556692;40.4692;17.2433
+ITF44;Brindisi;popolazione al 1º gennaio;totale;TOTAL;totale;2023;379522;40.6321;17.9407
+ITF45;Lecce;popolazione al 1º gennaio;totale;TOTAL;totale;2023;771230;40.3539;18.175
+ITF51;Potenza;popolazione al 1º gennaio;totale;TOTAL;totale;2023;346475;40.6394;15.804
+ITF52;Matera;popolazione al 1º gennaio;totale;TOTAL;totale;2023;191102;40.6685;16.6064
+ITF61;Cosenza;popolazione al 1º gennaio;totale;TOTAL;totale;2023;672432;39.2673;16.2559
+ITF62;Crotone;popolazione al 1º gennaio;totale;TOTAL;totale;2023;162749;39.0807;17.1274
+ITF63;Catanzaro;popolazione al 1º gennaio;totale;TOTAL;totale;2023;342021;38.9056;16.5946
+ITF64;Vibo Valentia;popolazione al 1º gennaio;totale;TOTAL;totale;2023;150709;38.6735;16.101
+ITF65;Reggio di Calabria;popolazione al 1º gennaio;totale;TOTAL;totale;2023;518699;38.1105;15.6514
+ITG11;Trapani;popolazione al 1º gennaio;totale;TOTAL;totale;2023;415006;38.0185;12.5204
+ITG12;Palermo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1204189;38.1157;13.3615
+ITG13;Messina;popolazione al 1º gennaio;totale;TOTAL;totale;2023;600180;38.1938;15.554
+ITG15;Caltanissetta;popolazione al 1º gennaio;totale;TOTAL;totale;2023;249431;37.4872;14.0667
+ITG16;Enna;popolazione al 1º gennaio;totale;TOTAL;totale;2023;154940;37.5673;14.2794
+ITG17;Catania;popolazione al 1º gennaio;totale;TOTAL;totale;2023;1074434;37.5027;15.0873
+ITG18;Ragusa;popolazione al 1º gennaio;totale;TOTAL;totale;2023;317793;36.9282;14.7172
+ITG25;Sassari;popolazione al 1º gennaio;totale;TOTAL;totale;2023;474739;40.7274;8.5569
+ITG26;Nuoro;popolazione al 1º gennaio;totale;TOTAL;totale;2023;198520;40.3216;9.3304
+ITG27;Cagliari;popolazione al 1º gennaio;totale;TOTAL;totale;2023;420364;39.2238;9.1217
+IT109;Fermo;popolazione al 1º gennaio;totale;TOTAL;totale;2023;167824;43.163;13.7193
+IT110;Barletta-Andria-Trani;popolazione al 1º gennaio;totale;TOTAL;totale;2023;379509;41.2623;16.409
+ITG14;Agrigento;popolazione al 1º gennaio;totale;TOTAL;totale;2023;413177;37.3119;13.5765
+ITG19;Siracusa;popolazione al 1º gennaio;totale;TOTAL;totale;2023;384866;37.0755;15.2866
+ITG28;Oristano;popolazione al 1º gennaio;totale;TOTAL;totale;2023;150325;39.9042;8.5912
+IT108;Monza e della Brianza;popolazione al 1º gennaio;totale;TOTAL;totale;2023;873606;45.5844;9.2732
+IT111;Sud Sardegna;popolazione al 1º gennaio;totale;TOTAL;totale;2023;334198;39.535;8.5535

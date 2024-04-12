@@ -129,7 +129,6 @@ class _CategoryIndexState extends State<CategoryIndex> {
         absorbing: isLoading,
         child: Stack(
           children: [
-
             ListView.builder(
               itemCount: lista_macrocategorie.length,
               itemBuilder: (BuildContext context, int index) {
