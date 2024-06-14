@@ -12,25 +12,26 @@ class ItalyMapPage extends StatefulWidget {
 class _ItalyMapPageState extends State<ItalyMapPage> {
   
   final List<LatLng> cityCoordinates = [
-    LatLng(42.3505, 13.3995), // L'Aquila - Abruzzo
-    LatLng(40.6395, 15.8050), // Potenza - Basilicata
-    LatLng(38.9053, 16.5947), // Catanzaro - Calabria
     LatLng(40.8522, 14.2681), // Napoli - Campania
-    LatLng(44.4949, 11.3426), // Bologna - Emilia Romagna
-    LatLng(45.6495, 13.7768), // Trieste - Friuli
-    LatLng(41.9028, 12.4964), // Roma - Lazio
-    LatLng(44.4056, 8.9463), // Genova - Liguria
-    LatLng(45.4642, 9.1900), // Milano - Lombardia
     LatLng(43.6158, 13.5189), // Ancona - Marche
     LatLng(41.5622, 14.6694), // Campobasso - Molise
-    LatLng(45.0703, 7.6869), // Torino - Piemonte
-    LatLng(41.1177, 16.8512), // Bari - Puglia
-    LatLng(39.2238, 9.1217), // Cagliari - Sardegna
-    LatLng(38.1157, 13.3613), // Palermo - Sicilia
+    LatLng(41.9028, 12.4964), // Roma - Lazio
+    LatLng(38.9053, 16.5947), // Catanzaro - Calabria
     LatLng(43.7711, 11.2486), // Firenze - Toscana
-    LatLng(46.0689, 11.1211), // Trento - Trentino
-    LatLng(43.1107, 12.3896), // Perugia - Umbria
+    LatLng(39.2238, 9.1217), // Cagliari - Sardegna
     LatLng(45.4342, 12.3388), // Venezia - Veneto
+    LatLng(42.3505, 13.3995), // L'Aquila - Abruzzo
+    LatLng(38.1157, 13.3613), // Palermo - Sicilia
+    LatLng(43.1107, 12.3896), // Perugia - Umbria
+    LatLng(40.6395, 15.8050), // Potenza - Basilicata
+    LatLng(44.4949, 11.3426), // Bologna - Emilia Romagna
+    LatLng(45.6495, 13.7768), // Trieste - Friuli
+    LatLng(45.4642, 9.1900), // Milano - Lombardia
+    LatLng(44.4056, 8.9463), // Genova - Liguria
+    LatLng(41.1177, 16.8512), // Bari - Puglia
+    LatLng(45.0703, 7.6869), // Torino - Piemonte
+    LatLng(46.0689, 11.1211), // Trento - Trentino
+
   ];
   List<int> lista_punteggi = [];
   int punteggio = 0;
@@ -115,6 +116,7 @@ class _ItalyMapPageState extends State<ItalyMapPage> {
       lista_punteggi.add(punteggiRegioni[regione] ?? 0);
     });
     print(lista_punteggi.toString());
+    print(regionNames.toString());
   }
 
   @override

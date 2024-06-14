@@ -15,18 +15,6 @@ class _CategoryIndexState extends State<CategoryIndex> {
   late bool isLoading = true; // Aggiunta variabile di caricamento
   late String selectedMacrocategoria;
 
-  /*Map<String, List<String>> macroCategorie = {
-    'Sicurezza': [],
-    'Ambiente': [],
-    'Salute': [],
-    'Istruzione e cultura': [],
-    'Lavoro, guadagni e ricchezza': [],
-    'Politica, diritti e cittadinanza': [],
-    'Società e comunità': [],
-    'Benessere percepito': [],
-    'Altro': [],
-  }; */
-
   @override
   void initState() {
     super.initState();
@@ -59,7 +47,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
 
       if (!lista_macrocategorie[macrocategoria]!.contains(indicatore)) {
         lista_macrocategorie[macrocategoria]!.add(indicatore);
-      } // Aggiungi l'indicatore alla categoria corrispondente
+      }
     }
 
     setState(() {
@@ -84,7 +72,6 @@ class _CategoryIndexState extends State<CategoryIndex> {
         title: Container(
           child: const Column(
             children: [
-              /*Text('Categorie degli indici'), */
               SizedBox(
                 height: 5,
               ),
@@ -113,10 +100,10 @@ class _CategoryIndexState extends State<CategoryIndex> {
                     height: 5,
                   ),
                   Text(
-                    "Clicca su un indicatore per vedere la sua proezione sulla mappa",
+                    "Clicca su un indicatore per vedere la sua proiezione sulla mappa",
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
-                      fontSize: 13
+                      fontSize: 13,
                     ),
                   ),
                 ],
@@ -137,26 +124,6 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 return ExpansionTile(
                   title: Row(
                     children: [
-                      /*IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedMacrocategoria = categoria;
-                          });
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  TopLowIndexPage(),
-                            ),
-                          );
-                        },
-                        icon: const Icon(
-                          Icons.info,
-                          color: Colors.blueAccent,
-                          size: 22,
-                        ),
-                      ),
-                      SizedBox(width: 20,), */
                       Icon(icone[index % icone.length]),
                       Text(
                         "  $categoria",
@@ -177,14 +144,10 @@ class _CategoryIndexState extends State<CategoryIndex> {
                         ),
                       ),
                       onTap: () {
-                        // Quando l'elemento viene cliccato, mostra l'immagine corrispondente
                         showDialog(
                           context: context,
                           builder: (context) {
-                            // Rimuovi temporaneamente gli underscore solo per il confronto
-                            //String cleanImageName = indice.replaceAll("_", " ");
-                            return ImageDialog(
-                                indice); // Passa sia il nome pulito che l'originale
+                            return ImageDialog(indice);
                           },
                         );
                       },
@@ -193,7 +156,7 @@ class _CategoryIndexState extends State<CategoryIndex> {
                 );
               },
             ),
-            if (isLoading) // Indicatore di caricamento circolare condizionale
+            if (isLoading)
               const Center(
                 child: CircularProgressIndicator(),
               ),
@@ -218,6 +181,9 @@ class _ImageDialogState extends State<ImageDialog> {
 
   @override
   Widget build(BuildContext context) {
+    // Sostituisce gli spazi con underscore nel nome dell'immagine
+    String imageName = widget.originalImageName.replaceAll(" ", "_");
+
     return Dialog(
       child: GestureDetector(
         onScaleUpdate: (details) {
@@ -231,7 +197,7 @@ class _ImageDialogState extends State<ImageDialog> {
         child: Transform.scale(
           scale: _imageScale,
           child: Image.asset(
-            'assets/layout_stampa/${widget.originalImageName}.png',
+            'assets/layout_stampa/$imageName.png',
           ),
         ),
       ),
